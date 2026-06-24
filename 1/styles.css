@@ -1,0 +1,140 @@
+/* 자주 쓰는 색을 변수로 미리 정해둡니다 */
+:root {
+    --green: #16a34a;
+    --green-dark: #15803d;
+    --ink: #141414;
+    --muted: #6b7280;
+    --line: #e5e7eb;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Pretendard Variable', Pretendard, sans-serif;
+    background: #f4f5f4;
+    color: var(--ink);
+    min-height: 100vh;
+    display: flex;
+    /* 카드를 화면 가운데에 */
+    align-items: center;
+    justify-content: center;
+    padding: 24px;
+}
+
+/* 명함 카드 */
+.card {
+    background: #ffffff;
+    width: 100%;
+    max-width: 380px;
+    border-radius: 20px;
+    box-shadow: 0 12px 40px rgba(0, 0, 0, .08);
+    overflow: hidden;
+    text-align: center;
+}
+
+/* 위쪽 초록 띠 */
+.top {
+    background: var(--green);
+    height: 96px;
+}
+
+/* 프로필 동그라미 (이니셜) */
+.avatar {
+    width: 96px;
+    height: 96px;
+    border-radius: 50%;
+    background: var(--green);
+    color: #fff;
+    font-size: 2.4rem;
+    font-weight: 700;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: -48px auto 0;
+    /* 초록 띠 위로 살짝 걸치기 */
+    border: 5px solid #fff;
+}
+
+.body {
+    padding: 18px 28px 32px;
+}
+
+.name {
+    font-size: 1.55rem;
+    font-weight: 700;
+}
+
+.role {
+    color: var(--green);
+    font-weight: 600;
+    margin-top: 4px;
+}
+
+.bio {
+    color: var(--muted);
+    font-size: .95rem;
+    line-height: 1.6;
+    margin-top: 14px;
+}
+
+/* 관심사 태그 */
+.tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    justify-content: center;
+    margin-top: 20px;
+}
+
+.tag {
+    font-size: .8rem;
+    color: var(--green-dark);
+    background: #e9f7ee;
+    padding: 5px 12px;
+    border-radius: 20px;
+}
+
+/* 연락처 줄 */
+.contact {
+    margin-top: 24px;
+    padding-top: 20px;
+    border-top: 1px solid var(--line);
+    text-align: left;
+    font-size: .92rem;
+}
+
+.contact div {
+    display: flex;
+    gap: 10px;
+    padding: 6px 0;
+    color: var(--ink);
+}
+
+.contact .label {
+    color: var(--muted);
+    width: 54px;
+}
+
+/* 버튼 */
+.btn {
+    width: 100%;
+    margin-top: 22px;
+    background: var(--green);
+    color: #fff;
+    font-family: inherit;
+    font-size: 1rem;
+    font-weight: 600;
+    padding: 13px;
+    border: none;
+    border-radius: 12px;
+    cursor: pointer;
+    transition: background .2s;
+}
+
+.btn:hover {
+    background: var(--green-dark);
+}
