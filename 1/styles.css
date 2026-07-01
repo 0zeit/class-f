@@ -1,7 +1,6 @@
-/* 자주 쓰는 색을 변수로 미리 정해둡니다 */
 :root {
-    --green: #16a34a;
-    --green-dark: #15803d;
+    --my-color: #16a34a;
+    --my-color-dark: #15803d;
     --ink: #141414;
     --muted: #6b7280;
     --line: #e5e7eb;
@@ -23,10 +22,41 @@ body {
     align-items: center;
     justify-content: center;
     padding: 24px;
+    transition: background .25s, color .25s;
+    /* 다크모드 전환을 부드럽게 */
+}
+
+/* body에 .dark 클래스가 붙으면 아래 색으로 바뀝니다 (JS가 이 클래스를 붙였다 뗐다 합니다) */
+body.dark {
+    background: #101010;
+    color: #f4f5f4;
+}
+
+body.dark .card {
+    background: #1c1c1c;
+    box-shadow: 0 12px 40px rgba(0, 0, 0, .4);
+}
+
+body.dark .bio {
+    color: #a3a3a3;
+}
+
+body.dark .contact {
+    border-top-color: #333;
+}
+
+body.dark .contact div {
+    color: #f4f5f4;
+}
+
+body.dark .tag {
+    background: #173322;
 }
 
 /* 명함 카드 */
 .card {
+    position: relative;
+    /* 다크모드 버튼을 카드 기준으로 배치하기 위해 */
     background: #ffffff;
     width: 100%;
     max-width: 380px;
@@ -34,12 +64,48 @@ body {
     box-shadow: 0 12px 40px rgba(0, 0, 0, .08);
     overflow: hidden;
     text-align: center;
+    transition: background .25s;
 }
 
 /* 위쪽 초록 띠 */
 .top {
-    background: var(--green);
+    background: var(--my-color);
     height: 96px;
+}
+
+/* 다크모드 전환 버튼 (해/달 아이콘) */
+.theme-toggle {
+    position: absolute;
+    top: 14px;
+    right: 14px;
+    width: 36px;
+    height: 36px;
+    border: none;
+    border-radius: 50%;
+    background: rgba(255, 255, 255, .25);
+    color: #fff;
+    font-size: 1.05rem;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: background .2s;
+}
+
+.theme-toggle:hover {
+    background: rgba(255, 255, 255, .4);
+}
+
+/* 시간대별 인사말 */
+.greeting {
+    font-size: .85rem;
+    color: var(--my-color-dark);
+    font-weight: 600;
+    margin-top: 2px;
+}
+
+body.dark .greeting {
+    color: #4ade80;
 }
 
 /* 프로필 동그라미 (이니셜) */
@@ -47,7 +113,7 @@ body {
     width: 96px;
     height: 96px;
     border-radius: 50%;
-    background: var(--green);
+    background: var(--my-color);
     color: #fff;
     font-size: 2.4rem;
     font-weight: 700;
@@ -69,7 +135,7 @@ body {
 }
 
 .role {
-    color: var(--green);
+    color: var(--my-color);
     font-weight: 600;
     margin-top: 4px;
 }
@@ -92,10 +158,24 @@ body {
 
 .tag {
     font-size: .8rem;
-    color: var(--green-dark);
+    color: var(--my-color-dark);
     background: #e9f7ee;
     padding: 5px 12px;
     border-radius: 20px;
+    cursor: pointer;
+    /* 클릭 가능한 요소임을 알려줍니다 */
+    user-select: none;
+    transition: transform .15s, background .15s;
+}
+
+.tag:hover {
+    transform: translateY(-1px);
+}
+
+/* JS가 클릭 시 이 클래스를 붙여서 "선택됨"을 표시합니다 */
+.tag.active {
+    background: var(--my-color);
+    color: #fff;
 }
 
 /* 연락처 줄 */
@@ -123,7 +203,7 @@ body {
 .btn {
     width: 100%;
     margin-top: 22px;
-    background: var(--green);
+    background: var(--my-color);
     color: #fff;
     font-family: inherit;
     font-size: 1rem;
@@ -136,5 +216,5 @@ body {
 }
 
 .btn:hover {
-    background: var(--green-dark);
+    background: var(--my-color-dark);
 }
