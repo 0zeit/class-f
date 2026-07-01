@@ -1,6 +1,6 @@
 // 1. 이메일 복사 버튼
-const button = document.getElementById('copyBtn');
-const email = document.getElementById('email').textContent;
+let button = document.getElementById('copyBtn');
+let email = document.getElementById('email').textContent;
 
 button.addEventListener('click', function () {
     // 이메일 주소를 클립보드에 복사
@@ -18,7 +18,7 @@ button.addEventListener('click', function () {
 //  2. 다크모드 전환 버튼
 //      -> body 태그에 "dark" 클래스를 붙였다 뗐다 합니다
 //      -> 실제 색 변화는 CSS의 body.dark 부분이 담당합니다
-const themeBtn = document.getElementById('themeBtn');
+let themeBtn = document.getElementById('themeBtn');
 
 themeBtn.addEventListener('click', function () {
     document.body.classList.toggle('dark');   // 있으면 제거, 없으면 추가
@@ -32,8 +32,8 @@ themeBtn.addEventListener('click', function () {
 });
 
 // 3. 시간대별 인사말
-const greeting = document.getElementById('greeting');
-const hour = new Date().getHours();   // 0 ~ 23 사이의 숫자
+let greeting = document.getElementById('greeting');
+let hour = new Date().getHours();   // 0 ~ 23 사이의 숫자
 
 if (hour < 12) {
     greeting.textContent = '☀️ 좋은 아침이에요!';
@@ -44,7 +44,7 @@ if (hour < 12) {
 }
 
 // 4. 관심사 태그 클릭해서 선택하기
-const tags = document.querySelectorAll('.tag');   // 태그 전체를 목록으로 가져옴
+let tags = document.querySelectorAll('.tag');   // 태그 전체를 목록으로 가져옴
 
 tags.forEach(function (tag) {
     tag.addEventListener('click', function () {
