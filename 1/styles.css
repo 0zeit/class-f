@@ -53,6 +53,52 @@ body.dark .tag {
     background: #173322;
 }
 
+/* 브레드크럼 + 카드를 세로로 쌓고 화면 가운데 정렬하기 위한 감싸는 요소 */
+.page {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+    max-width: 380px;
+}
+
+/* 브레드크럼 (눈에 보이는 경로 표시) */
+.breadcrumb {
+    max-width: 380px;
+    width: 100%;
+    margin: 0 auto 10px;
+    font-size: .8rem;
+    color: var(--muted);
+    display: flex;
+    gap: 6px;
+    flex-wrap: wrap;
+}
+
+.breadcrumb a {
+    color: var(--muted);
+    text-decoration: none;
+}
+
+.breadcrumb a:hover {
+    color: var(--my-color-dark);
+    text-decoration: underline;
+}
+
+.breadcrumb span[aria-current] {
+    color: var(--ink);
+    font-weight: 600;
+}
+
+
+body.dark .breadcrumb,
+body.dark .breadcrumb a {
+    color: #9ca3af;
+}
+
+body.dark .breadcrumb span[aria-current] {
+    color: #f4f5f4;
+}
+
 /* 명함 카드 */
 .card {
     position: relative;
